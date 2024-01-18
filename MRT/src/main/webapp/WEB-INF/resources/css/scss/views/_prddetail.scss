@@ -1,0 +1,330 @@
+/* prddetail.scss */
+.prd-detail-wrap {
+    position: relative;
+    padding: 20px 0 30px;
+    .prd-detail-head {
+        @include clear;
+        margin-bottom: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        label,
+        .btn-wrap {
+            flex: 0 auto;
+            float: left;
+            width: 100%;
+        }
+        label {
+            //order: 1;
+            //text-align: right;
+            font-size: rem(14px);
+            margin-bottom: 5px;
+            word-break: keep-all;
+        }
+        .btn-wrap {
+            text-align: left;
+            button {
+                padding: 0 20px;
+                height: 30px;
+            }
+            button + button { margin-left: 5px; }
+            .btn-sell {
+                color: #fff;
+                background: $navy;
+                @include hover(#fff, $primary);
+            }
+            .btn-modify {
+                color: #fff;
+                background: $gray;
+                @include hover(#333, $border);
+            }
+            .btn-delete {
+                background: $border-lt;
+                border: $border solid 1px;
+                @include hover(#333, $border);
+            }
+        }
+        @include mobile {
+            .col-6 { 
+                width: 100% !important;
+                text-align: right;
+            }
+            .btn-wrap {
+                .btn-sell {
+                    display: block;
+                    margin-bottom: 10px;
+                }
+                .btn-modify { margin-left:0; }
+            }
+        }
+    }
+    .prd-detail-con {
+        position: relative;
+        margin-top: rem(40px);
+        padding-top: rem(30px);
+        border-top: $border solid 1px;
+        img { max-width: 100%; }
+    }
+    .prd-info-wrap {
+        @include clear;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        li {
+            flex: 0 auto;
+            float: left;
+        }
+        .prd-img-big { 
+            position: relative;
+            width: 45%;
+            height: rem(300px);
+            border: $border solid 1px;
+            overflow: hidden;
+            img {
+                @include v-mid;
+                max-width: 100%;
+            }
+        }
+        .prd-info { 
+            width: 55%;
+            padding-left: 50px;
+            .prd-name {
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+                font-size:rem(32px);
+                font-weight: 700;
+                border-bottom: $border solid 1px;
+                .shop-name {
+                    font-size:rem(16px);
+                    font-weight: normal;
+                    color:#aaa;
+                    margin-bottom: 5px;
+                    label { display: none; }
+                    &::before {
+                        content: '\f54e';
+                        @include fa;
+                        font-size: 14px;
+                        color: rgba($gray, .5);
+                        margin-right: 4px;
+                    }
+                }
+            }
+            .prd-txt {
+                margin-top: 20px;
+                label {
+                    display: block;
+                    font-size: rem(14px);
+                    color: #888;
+                    font-weight: 700;
+                    &::after {
+                        content: ':';
+                        margin: 0 5px;
+                    }
+                }
+                span {
+                    @include inline-block;
+                    font-size: rem(16px);
+                    //width: calc(100% - 116px); 
+                    input, select { height: 40px; }
+                }
+                .view-color { 
+                    width: 100%;
+                    .color {
+                        display: block;
+                        width: 100%;
+                        line-height: 24px;
+                        background: #fff;
+                        border: $border solid 1px;
+                        border-radius: 3px;
+                        @include hover($primary, #f5f5f9);
+                        text-align: center;
+                    }
+                }
+                .view-color + .view-color { margin-top: 10px; }
+                .view-size {
+                    @include clear;
+                    margin-top: 5px;
+                    display: block;
+                    color: #666;
+                    cursor: default;
+                    .btn-offline {
+                        float: right;
+                        font-size: rem(14px);
+                        margin-left: 5px;
+                        padding: 0 5px;
+                        height: 24px;
+                        line-height: 24px;
+                        border-radius: 3px;
+                        background: rgba($gray, .3);
+                        &:hover { background: rgba($gray, .5); }
+                    }
+                }
+                .view-size + .view-size {
+                    margin-top: 5px;
+                    padding-top: 5px;
+                    border-top: $border dashed 1px;
+                }
+            }
+            .qty input { width: 80px; }
+            .prd-btn {
+                @include clear;
+                margin-top: 20px;
+                .btn-buy,
+                .btn-cart {
+                    width: calc(50% - 3px);
+                    height: 60px;
+                    font-size: rem(20px);
+                }
+                .btn-buy {
+                    background: #000;
+                    color: #fff;
+                    &:hover {
+                        background: $primary;
+                    }
+                }
+                .btn-cart {
+                    float: right;
+                    background: #fff;
+                    border: #000 solid 1px;
+                    color: #000;
+                    font-weight: 500;
+                    &:hover { 
+                        color: $primary;
+                        border: $primary solid 1px; 
+                    }
+                }
+            }
+        }
+        @include tablet {
+            .prd-img-big,
+            .prd-info { width: 50%; }
+        }
+        @include mobile {
+            .prd-img-big { display: none; }
+            .prd-info { 
+                width: 100%;
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+.prd-regi {
+    input[type="text"], select { height: 30px !important; }
+    label + label { margin-left: 10px; }
+    input.name { width: 100%; }
+    .btn-add {
+        width: auto !important;
+        height: 30px;
+        padding: 0 20px;
+        font-size: rem(16px);
+    }
+    .btn-delete {
+        height: 30px;
+        padding: 0 20px;
+        background: $border-lt;
+        border: $border solid 1px;
+        @include hover(#333, $border);
+    }
+    .btn-token {
+        font-size: rem(14px);
+        height: 30px;
+        padding: 0 20px;
+        background: $border-lt;
+        border: $border solid 1px;
+        @include hover(#333, $border);
+    }
+    input[type="checkbox"] {
+        display:none;
+    }
+    label input[type="checkbox"] + span.chkbox {
+        display:inline-block;
+        width:20px;
+        height:20px;
+        margin:-2px 5px 0 0;
+        vertical-align:middle;
+        background:url(#{$img-path}/ico_chk.png) no-repeat;
+        background-size: 20px;
+        cursor:pointer;
+    }
+    label input[type="checkbox"]:checked + span.chkbox {
+        background:url(#{$img-path}/ico_chk_on.png) no-repeat;
+        background-size: 20px;
+    }
+    .return-chk { 
+        margin:10px 0 30px;
+        label + span {
+            margin-left: 10px;
+        }
+    }
+    @include mobile {
+        .fonts.red { 
+            display: block;
+            margin-top: 5px;
+            word-break: keep-all;
+        }
+        select { display: block; }
+        [id*="p_supply"] { 
+            margin-top: 5px; 
+            vertical-align: bottom;
+        }
+        .return-chk {
+            label { display: block; }
+            span { 
+                margin-left: 0;
+                font-size: rem(14px);
+            }
+        }
+    }
+}
+
+div.token-wrap {
+    margin: 10px 0;
+    padding: 10px;
+    border: $border solid 1px;
+    dl {
+        @include clear;
+        padding-top: 5px;
+    }
+    dt, dd {
+        float: left;
+        height: 30px;
+        line-height: 30px;
+        font-size: rem(14px);
+        select,
+        input { height: 30px !important; }
+    }
+    dt { width: 70px; }
+    dd { 
+        position: relative;
+        width: calc(100% - 70px); 
+        padding-left: 20px;
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 14px;
+            background: $border;
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+    }
+    button {
+        padding: 0 15px;
+        height: 30px;
+    }
+    button + button { margin-left: 5px; }
+}
+table.token-wrap {
+    margin-top: 5px;
+    tbody tr:hover {
+        background: rgba($primary, .07);
+    }
+    td:nth-child(3) { text-align: right; }
+    @include mobile {
+        col:nth-child(1) { width: 20%;  }
+        col:nth-child(2) { width: 30%;  }
+        col:nth-child(3) { width: 40%;  }
+    }
+}

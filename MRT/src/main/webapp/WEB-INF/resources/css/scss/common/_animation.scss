@@ -1,0 +1,60 @@
+/* animation.scss */
+
+@charset "UTF-8";
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translate(0px, 5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes fadein-up {
+    from {
+        opacity: 0;
+        transform: translate(0px, 20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes fadein-left {
+    from {
+        opacity: 0;
+        transform: translate(-50px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+}
+
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

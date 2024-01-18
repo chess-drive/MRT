@@ -1,0 +1,368 @@
+/* order.scss */
+table[class*="order"] {
+    thead th { font-size: rem(12px); }
+    tbody td {
+        text-align: center;
+        font-size: rem(14px);
+    }
+    .order-num {
+        font-size: rem(12px);
+        color: #888;
+    }
+    .item {
+        @include clear;
+        text-align: left;
+        .thumb,
+        .item-info { float: left; }
+        .thumb {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            overflow: hidden;
+        }
+        .item-info {
+            width: calc(100% - 60px);
+            padding-left: 20px;
+            p { line-height: 1.35rem; }
+        }
+        .opt {
+            font-size: rem(12px);
+            color: $gray;
+        }
+    }
+    .price {
+        p {
+            @include clear;
+            text-align: right;
+        }
+        p span {
+            float: left;
+            color: #888;
+            font-size: rem(12px);
+            vertical-align: baseline;
+        }
+    }
+    .return { font-weight: 500; }
+}
+.order-wrap {
+    .order-status {
+        margin-bottom: 10px;
+        text-align: right;
+        font-size: rem(12px);
+        span { @include inline-block; }
+        span + span { margin-left: 10px; }
+        span::before {
+            content:'';
+            display: inline-block;
+            vertical-align: middle;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 3px;
+        }
+        span.compl::before { background:rgba($color3, .3); }
+        span.wait::before { background:rgba($gray, .5); }
+        span.return::before { background:rgba($color4, .5); }
+    }
+    .order-list {
+        colgroup {
+            col:nth-child(1) { width: 120px; }
+            col:nth-child(2) { width: 170px; }
+            col:nth-child(3) { width: auto; }
+            col:nth-child(4) { width: 120px; }
+            col:nth-child(5) { width: 150px; }
+        }
+        tbody tr {
+            cursor: pointer;
+            //&:hover > td p.name { text-decoration: underline; }
+            &:hover td:not(.no-data) { background: rgba($primary, .07) !important; }
+        }
+        .order-name button {
+            padding: 0;
+            &:hover { text-decoration: underline; }
+        }
+        @include mobile {
+            /*
+            colgroup {
+                col:nth-child(1) { width: 64px; }
+                col:nth-child(2) { width: auto; }
+                col:nth-child(3) { width: 80px; }
+                col:nth-child(4) { width: 50px; }
+                col:nth-child(5) { width: 60px; }
+            }    
+            .item,
+            .qty, 
+            .return {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            .item {
+                .thumb {
+                    width: 30px;
+                    height: 30px;
+                }
+                .item-info { 
+                    width: calc(100% - 30px);
+                    padding-left: 5px; 
+                }
+            }
+            .price {
+                span { 
+                    float: none;
+                    display: block;
+                    padding-right: 5px;
+                }
+            }
+            .return {
+                font-size: rem(13px);
+            } */
+            colgroup { display: none; }
+            thead { display: none; }
+            tr { 
+                @include clear;
+                display: block;
+                padding: 10px 0;
+            }
+            td {
+                @include clear;
+                display: block;
+                width: 100%;
+                padding: 0 rem(10px);
+                text-align: right;
+            }
+            td + td {
+                padding-top: rem(5px);
+                margin-top: rem(5px);
+                border-top: $border-lt dashed 1px;
+            }
+            .order-num {
+                font-size: rem(14px);
+            }
+            .item {
+                min-height: 40px;
+                margin-bottom: 5px;
+                .thumb {
+                    width: 40px;
+                    height: 40px;
+                }
+                .item-info { 
+                    width: calc(100% - 40px);
+                    padding-left: 10px;
+                    line-height: 1.25em; 
+                    text-align: left;
+                }
+            }
+            .return {
+                font-size: rem(13px);
+            }
+            .order-num::before,
+            .order-name::before,
+            .order-addr::before,
+            .price::before,
+            .order-date::before,
+            .color::before,
+            .size::before,
+            .qty::before,
+            .return::before {
+                float: left;
+                color: #888;
+                font-size: rem(12px);
+            }
+            .order-num::before { content:'주문번호'; }
+            .color::before { content: '색상'; }
+            .size::before { content: '사이즈'; }
+            .qty::before { content: '수량'; }
+            .return::before { content: '반품정보'; }    
+            .order-name::before { content: '주문자명'; }
+            .order-addr::before { content: '배송지'; }
+            .price::before { content: '총 주문금액'; }
+            .order-date::before { content: '주문일자'; }
+            .no-data { text-align: center; }
+        }
+    }
+    tr.case-compl { background: rgba($color3, .08); }
+    tr.case-wait { background: rgba($gray, .15); }
+    tr.case-return { background: rgba($color4, .125); }
+}
+.order-detail {
+    .detail-wrap + .detail-wrap { margin-top: 30px; }
+    .detail-wrap {
+        h4 { margin-bottom: 10px; }
+        .orderer {
+            th, td { text-align: left; }
+            th { 
+                width: 150px;
+                background: #f5f6f9;
+            }
+            td { padding-left: 20px; }
+            input[id*="num"] { width:50%; }
+            .btn-regi {
+                height: 30px;
+                padding: 0 20px;
+            }
+            @include mobile {
+                colgroup { display: none; }
+                th,
+                td { 
+                    display: block; 
+                    width: 100%;
+                }
+                input[id*="num"] { width: calc(100% - 80px); }
+            }
+        }
+        .order-prd {
+            width: 100%;
+            colgroup {
+                col:nth-child(1) { width: auto; }
+                col:nth-child(2) { width: 100px; }
+                col:nth-child(3) { width: 80px; }
+                col:nth-child(4) { width: 80px; }
+                col:nth-child(5) { width: 170px; }
+                col:nth-child(6) { width: 150px; }
+            }
+            .item-info { line-height: 60px; }
+            @include mobile {
+                colgroup { display: none; }
+                thead { display: none; }
+                tr { 
+                    @include clear;
+                    display: block;
+                    padding: 10px 0;
+                }
+                td {
+                    @include clear;
+                    display: block;
+                    width: 100%;
+                    padding:0 rem(10px);
+                    text-align: left;
+                }
+                .item {
+                    min-height: 40px;
+                    margin-bottom: 5px;
+                    .thumb {
+                        width: 40px;
+                        height: 40px;
+                    }
+                    .item-info { 
+                        width: calc(100% - 40px);
+                        padding-left: 10px;
+                        line-height: 1.25em; 
+                        text-align: left;
+                    }
+                } /*
+                .color::before,
+                .size::before,
+                .qty::before,
+                .return::before {
+                    float: left;
+                    color: #888;
+                    font-size: rem(12px);
+                }
+                .color::before { content: '색상'; }
+                .size::before { content: '사이즈'; }
+                .qty::before { content: '수량'; }
+                .return::before { content: '반품정보'; } */
+            } 
+            
+            tr.case-compl,
+            tr.case-wait,
+            tr.case-return {
+                td { position: relative; }
+            }
+            tr.case-compl { 
+                background: rgba($color3, .08); 
+                td:nth-child(1)::before {
+                    content: '완료';
+                    position: absolute;
+                    left: 3px;
+                    bottom: 3px;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    border-radius: 50%;
+                    text-align: center;
+                    color: #fff;
+                    background: $color3;
+                    font-size: rem(13px);
+                }
+            }
+            tr.case-wait { 
+                background: rgba($gray, .15);
+                td:nth-child(1)::before {
+                    content: '미결제';
+                    position: absolute;
+                    left: 3px;
+                    bottom: 3px;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    border-radius: 50%;
+                    text-align: center;
+                    color: #fff;
+                    background: $gray;
+                    font-size: rem(13px);
+                }
+            }
+            tr.case-return { 
+                background: rgba($color4, .125);
+                td:nth-child(1)::before {
+                    content: '반품';
+                    position: absolute;
+                    left: 3px;
+                    bottom: 3px;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    border-radius: 50%;
+                    text-align: center;
+                    color: #fff;
+                    background: $color4;
+                    font-size: rem(13px);
+                }
+            }
+
+            &.detail {
+                colgroup {
+                    col:nth-child(1) { width: 150px; }
+                    col:nth-child(2) { width: auto; }
+                }    
+                th, td { text-align: left; }
+                th { background: #f5f6f9; }
+                td { padding-left: 20px; }
+                .item-info {
+                    position: relative;
+                    height: 60px;
+                    p {
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        padding-left: 10px;
+                        transform: translateY(-50%);
+                    }
+                }
+                p.won {
+                    text-align: left;
+                    font-weight: 500;
+                }
+
+                @include mobile {
+                    tr { padding: 0; }
+                    th,
+                    td { 
+                        display: block; 
+                        width: 100%;
+                        padding:rem(5px) rem(10px);
+                    }
+                    .item-info { height: 40px; }
+                }
+            }
+        }
+    }
+}
+.modal-con {
+    .order-prd:not(.detail) {
+        tbody tr:hover td {
+            background: rgba($primary, .07);
+        }
+    }
+}

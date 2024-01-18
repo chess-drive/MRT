@@ -1,0 +1,60 @@
+/* pagination.scss */
+$page : 30px;
+.pageWarp {
+    margin-top: 30px;
+    @include clear;
+    .pageNavigation {
+        text-align: center;
+        [class*="page"],
+        button {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        button { 
+            height: $page;
+            line-height: $page;
+            text-align: center;
+            font-size: rem(12px);
+            color: #888;
+            &:hover {
+                color: $primary;
+            }
+            &.on {
+                border-bottom : $primary solid 2px;
+                color: $primary;
+            }
+        }
+        .pageNum {
+            button + button {
+                &::before {
+                    content: '';
+                    margin-right: 15px;
+                    display: inline-block;
+                    width: 1px; 
+                    height: 12px;
+                    background: $border;
+                    vertical-align: middle;
+                }
+            }
+        }
+        .pagePre,
+        .pageNext {
+            &::before,
+            &::after {
+                display: inline-block;
+                width: 1px; 
+                height: 20px;
+                background: $border;
+                vertical-align: middle;
+            }
+        }
+        .pagePre::after {
+            content:'';
+            margin: 4px 10px 0 5px;
+        }
+        .pageNext::before {
+            content:'';
+            margin: 4px 5px 0 10px;
+        }
+    }
+}

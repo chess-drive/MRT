@@ -1,0 +1,16 @@
+.footer{clear:both; width:100%; height:230px;}
+.footerWarp{clear:both;width:100%; height:225px; background:#191919; /*margin-top:240px;*/}
+.footerWarp .footerInfo{margin:0 auto;width:1200px; height:100%; padding-top:47px;}
+.footerWarp a{color:#EAEAEA; font-size:19px;}
+.footerWarp span{font-size:15px; color:#C1C1C1;}
+.footerWarp .margin_li{margin-top:15px;}
+.footerWarp li{margin-top:3px;}
+.footerWarp .footerInfo .left{float:left; width:250px;}
+.footerWarp .footerInfo .footerRight{float:left; width:760px; margin-left:155px;}
+.footerWarp .footerInfo .footerRight .company_info{float:left; width:355px;}
+.footerWarp .footerInfo .footerRight .donate{float: right; width:400px;}
+.footerWarp .sp_margin{}
+
+.footer .bottomLine{width:100%; height:40px; background:#000 !important;}
+.footer .bottomLine .info{margin:0 auto;width:1200px; color:#494949; }
+.footer .bottomLine .info p{line-height:40px; font-size:13px;}

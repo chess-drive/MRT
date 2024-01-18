@@ -1,0 +1,42 @@
+/* btn.scss */
+.btn-gray,
+.btn-cancel {
+    background: $gray;
+}
+.btn-confirm {
+    background: $primary;
+}
+.btn-dark,
+.btn-regi {
+    color: #fff;
+    background: #333;
+    @include hover(#fff, $primary);
+}
+.btn-gray,
+.btn-cancel,
+.btn-confirm {
+    display: inline-block;
+    color: #fff;
+    @include hover(#fff, $navy);
+}
+
+.btn-base {    
+    background: $border-lt;
+    border: $border solid 1px;
+    @include hover(#333,$border);
+}
+a.big,
+button.big {
+    height: 50px;
+    padding: 0 50px;
+}
+
+.modal .btn-wrap {
+    text-align: center;
+}
+.btn-wrap {
+    button + button { margin-left: 10px; }
+    @include mobile {
+        text-align: center;
+    }
+}

@@ -1,0 +1,119 @@
+
+ @media screen and (max-width: 1420px) {
+/*.fixed-header .header .container{padding-left: 50px;}*/
+            }
+
+/*해더*/
+.header{    position: relative;
+    z-index: 999;
+    width: 100%;
+    background: #fff;
+    color: #D8D8D8;
+    z-index: 998;
+    transition: .2s;
+    box-shadow: 0px 10px 10px silver;
+
+	}
+.header nav .container .gnb ul li a,.header .bookmark.on a p,.header p{color:#515151;}
+.header nav .container .gnb ul li.on a{color:#01167b;}
+.content .pageNavigation .pagePre,.header .bookmark a p:hover,.header nav .container .gnb ul li a:hover,.content .pageNavigation .pageNext
+{color:#01167b;}
+
+.header nav{width: 1420px; height: 70px; margin:0 auto;}
+.header .container{margin:0 auto; width:1200px;height:70px; padding-top:25px; }
+.header .container div{float:left;}
+.header .container .logo{float:left;width:135px; height:19px; background-image:url("/resources/image/logo-02.png") ; background-size:135px; }
+.header .container .gnb{width:505px;}
+.header .container .gnb ul li{float:left;margin-left:40px;}
+.header nav .container .gnb ul li a:hover{transition:.3s;}
+
+
+ .fixed-header { width:100% !important; position: fixed; top:0px;left: 0;  z-index:999;  }
+
+/*해더고정*/
+/*.fixed-header { width:100% !important; position: fixed; top: -70px;left: 0;  z-index:999;
+-webkit-transform: translate3d(0,70px,0);
+-moz-transform: translate3d(0,70px,0);
+transform: translate3d(0,70px,0);
+-webkit-transition: all 1s;
+-moz-transition: all 1s;
+-ms-transition: all 1s;
+-o-transition: all 1s;
+transition: all 1s;}
+
+.fixed-header .search_name{color:#515151;}
+.fixed-header .header .container{ !*width:1211px;transition:all 1s ease .1s;*!}
+.fixed-header .header .container .gnb{width:505px;}*/
+
+
+
+/*서치박스*/
+
+.search_header{width:205px; height:30px; border:2px solid #4e4e4e; margin-right: 8px; margin-top: -4px;
+                -webkit-border-radius: 8px;
+    			-moz-border-radius: 8px;
+    			border-radius: 8px;}
+.search_header button{float:right;border: 0;background: transparent;color: #515151; margin-top: 4px;    margin-right: 7px;}
+.search_name{border:0;background:transparent; width:75%; height:100%; color: #515151; padding-left: 10px;}
+.toExcName{height:29px;border: 2px solid #4e4e4e;    width: 58px; color: #515151; padding-left: 6px; font-size:15px; font-weight:600;  font-family:'Noto Sans KR', sans-serif; 
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            margin: -4px 8px 0 0;cursor:pointer;}
+
+
+.header .search_coin nav{width:auto;height: 300;overflow: auto; background: #f5f5f5; }
+.header .search_coin nav ul li{color:#515151; padding:5px; cursor:pointer;}
+.header .search_coin nav ul li:hover{color:#01167b;}
+
+.header .result_head{padding:5px; background:#01167b; color:#fff !important; }
+.search_coin{display:none; padding-top:10px;}
+.fixed-header .search_coin nav{opacity:1;}
+.search_coin .search_coin_result nav ul li{color: #515151;padding: 5px;}
+
+/*환율*/
+.header .bookmark a p,#header .exchange_rate p{font:normal normal 900 17px 'Namsan'; color:#515151; line-height:22px; margin-left:7px;}
+
+/*환율*/
+.header .exchange_rate{padding-left:30px;}
+
+
+/*FONT*/
+.header .container{ font:normal normal 700 17px 'Namsan' !important;}
+.header .container .exchange_rate{font-weight:100;line-height: 20px;}
+
+
+/*광고 상단부분*/
+.clip_top{margin:0 auto; width:730px; height:90px; margin-top:90px; margin-bottom:90px;}
+
+/*광고 사이드*/
+
+.clip_bg{width:1370px; left:-705px;}
+.clip_right{float:right; width:160px; height:600px;}
+
+.clip_left{float:left; width:160px; height:600px;}
+.clip_left ul{float:right;}
+.clip_left ul li{width:90px;height:30px; margin-bottom:5px; text-align:center;background:#0068FF;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;}
+.clip_left ul li a{ color:#fff; }
+
+
+
+
+
+
+/*하단페이지목록*/
+.content .pageWarp{width:1170px;}
+.content .pageNavigation{display: table; margin:0 auto;height:35px;margin-top:75px;}
+.content .pageNavigation .warp{margin:0 auto;}
+.content .pageNavigation button{border-right: 0; font-size:15px; font-family:'Noto Sans KR', sans-serif; font-weight:600; }
+.content .pageNavigation .pageNum{ float:left;  color:#515151; padding: 0 20px;}
+.content .pageNavigation .pageNum button{padding:0 5px;}
+.content .pageNavigation .pageNum button.button_none.on{color:#01167b;}
+.content .pageNavigation .pagePre{float:left;}
+.content .pageNavigation .pagePre button{padding: 0 8px 0 5px; }
+.content .pageNavigation .pageNext{float:left;}
+.content .pageNavigation .pageNext button{ padding: 0 5px 0 8px;}
+

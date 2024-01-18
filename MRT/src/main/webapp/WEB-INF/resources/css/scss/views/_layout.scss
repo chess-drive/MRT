@@ -1,0 +1,379 @@
+/* layout.scss */
+$max-width : 1380px;
+$head-h : rem(80px);
+$gnb-font : rem(14px);
+$bg-lt: #1d2e54;
+
+$lt-menu : 200px;
+$lt-menu_tablet : 150px;
+.wrap { 
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.header {
+    background: $navy;
+    .header-body {
+        @include clear;
+        position: relative;
+        max-width: $max-width;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .logo,
+    .lnb,
+    .gnb {
+        flex: 0 auto;
+        float: left;
+        height: $head-h;
+        line-height: $head-h;
+    }
+    .logo {
+        width: $lt-menu;
+        background: url('#{$img-path}/logo_wh.png') center no-repeat;
+        background-size: auto 42px;
+        cursor: pointer;
+    }
+    .lnb {
+        width: calc(70% - #{$lt-menu});
+        padding-left: 30px;
+        a {
+            position: relative;
+            @include inline-block;
+            height: 100%;
+            font-size: rem(18px);
+            font-weight: 400;
+            color: rgba(255,255,255, .8);
+            @include hover-color(#fff);
+            &.active {
+                color: #fff;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: -10px;
+                    right: -10px;
+                    bottom: -2px;
+                    height: 4px;
+                    border-radius: 2px;
+                    background: lighten($primary, 10%);
+                    z-index: 3;
+                }
+            }
+        }
+        a + a { margin-left: 50px; }
+    }
+    .gnb {
+        width: 30%;
+        padding-right: 20px;
+        font-size: $gnb-font;
+        color: rgba(255,255,255, .5);
+        text-align: right;
+        .feather {
+            margin-right: 3px;
+            width: $gnb-font;
+            height: $gnb-font;
+            vertical-align: middle;
+        }
+        span {
+            @include inline-block;
+            @include hover-color(#fff);
+        }
+        span + span {
+            &::before {
+                content:'';
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 10px;
+                width: 1px;
+                height: $gnb-font;
+                background: rgba(255,255,255, .3);
+            }
+        }
+    }
+    @include tablet {
+        .logo,
+        .lnb,
+        .gnb { 
+            height: calc(#{$head-h} - 10px);
+            line-height: calc(#{$head-h} - 10px);
+        }
+        .logo { width: $lt-menu_tablet; }
+        .lnb { width:calc(70% - #{$lt-menu_tablet}); }
+    }
+    @include mobile {
+        .logo,
+        .lnb { 
+            height: calc(#{$head-h} - 40px);
+            line-height: calc(#{$head-h} - 40px);
+        }
+        .logo {
+            order: 1;
+            width: 100px;
+            background-size: auto 24px;
+        }
+        .lnb {
+            order: 3;
+            width: 100%;
+            padding-left: rem(20px);
+            a + a { margin-left: 20px; }
+        }
+        .gnb { 
+            order : 2;
+            width: calc(100% - 100px);
+            height: 30px;
+            line-height: 35px;
+            font-size: rem(12px);
+            .feather { display: none; }
+        }
+    }
+}
+
+.container {
+    @include clear;
+    position: relative;
+    width: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    min-height: calc(100vh - 15rem);
+    .left_menu {
+        position: absolute;
+        top: 30px;
+        width: $lt-menu;
+        z-index: 20;
+        .left-tit { 
+            margin-bottom: rem(10px);
+            //padding-left: rem(20px);
+            width: 100%;
+            height: 30px;
+            font-weight: 500;
+            font-size: rem(22px);
+            color: $primary;
+        }
+        ul {
+            //padding: rem(10px) 0;
+            background: $border-lt;
+            border: $border solid 1px;
+            li { 
+                position: relative;
+                padding: 0 rem(30px);
+                color: rgba(0,0,0, .75);
+                height: 40px;
+                line-height: 40px;
+                overflow: hidden;
+                transition: .3s;
+                cursor: pointer;
+                a {
+                    display: block;
+                    margin:0 -30px;
+                    padding-left: rem(30px);
+                    height: 100%;
+                }
+                &.active,
+                &:hover,
+                a.active,
+                a:hover { 
+                    color: #fff;
+                    font-weight: 500;
+                    background: $primary;
+                }/*
+                &.active::before,
+                a.active::before {
+                    content:'';
+                    position: absolute;
+                    left:0;
+                    top:0;
+                    bottom:0;
+                    width: 5px;
+                    background: $primary;
+                }*/
+            }
+            li + li { border-top: rgba(0,0,0, .1) solid 1px; }
+        }
+    }
+    .content {
+        position: relative;
+        padding: rem(20px) rem(20px) rem(70px) calc(#{$lt-menu} + 30px);
+        .tit-con { 
+            padding-bottom: rem(20px);
+            font-size: rem(30px);
+        }
+    }
+    @include tablet {
+        .left_menu {
+            width: $lt-menu_tablet;
+            li { 
+                padding:rem(10px) rem(10px) rem(10px) rem(15px);
+                font-size: rem(14px);
+            }
+        }
+        .content { padding: rem(20px) rem(20px) rem(70px) calc(#{$lt-menu_tablet} + 30px); }
+    }
+    @include mobile {
+        .left_menu {
+            position: relative;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 0;
+            .left-tit,
+            ul { 
+                visibility: hidden;
+                border-left: none;
+                border-right: none;
+                li {
+                    background: $border-lt;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+                a span {
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+            .left-tit {
+                height: auto;
+                margin-bottom: 0;
+                padding: rem(10px) rem(20px);
+                font-size: rem(20px);
+                background: #fff;
+            }
+            &::after {
+                content:'\f0c9';
+                display: block;
+                position: absolute;
+                top: -20px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                border-radius: 50%;
+                background: #fff;
+                color:$primary;
+                border: $border solid 2px;
+                @include fa;
+                font-size: rem(20px);
+                visibility: visible;
+                cursor: pointer;
+                z-index: 2;
+            }
+            &:hover > ul,
+            &:hover > .left-tit  {
+                visibility: visible;
+                animation: fade .3s;
+            }
+        }
+        .content {
+            padding: rem(20px);
+        }
+    }
+}
+.footer {
+    @include clear;
+    margin-top: 30px;
+    padding: rem(40px) rem(20px);
+    background: #333;
+    color: rgba(255,255,255, .5);
+    line-height: rem(22px);
+    .foot-inner {
+        position: relative;
+        width: 100%;
+        max-width: $max-width;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: rem(14px);
+    }
+    .copy,
+    .menu,
+    .bn-wrap { 
+        flex: 0 auto;
+        float: left;
+     }
+    .copy {
+        width:40%;
+        padding-right: 80px;
+        span + span {
+            &::before {
+                content:'';
+                display: inline-block;
+                vertical-align: middle;
+                width: 1px;
+                height: rem(12px);
+                background: rgba(255,255,255, .3);
+                margin: 0 10px;
+            }
+        }
+        .company {
+            margin-bottom: 20px;
+            font-size: rem(16px);
+            color: rgba(255,255,255, .7);
+        }
+        .copyright { 
+            margin-top: 5px;
+            font-size: rem(12px); 
+            letter-spacing: rem(.8px);
+            color: rgba(255,255,255, .4);
+        }
+    }
+    .menu {
+        width: 30%;
+        letter-spacing: rem(.5px);
+        .privacy { color: rgba(255,255,255, .65); }
+        .privacy:hover,
+        a:hover {
+            color: rgba(255,255,255, .8);
+        }
+    }
+    .bn-wrap {
+        width: 30%;
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: flex-end;
+        span {
+            @include inline-block;
+            margin-top: 10px;
+        }
+        span + span { margin-left: 10px; }
+        img { height: 50px; }
+    }
+    @include tablet {
+        .copy { 
+            width: 50%; 
+            padding-right: 0;
+        }
+        .menu { width: 20%; }
+        .bn-wrap { width: 30%; }
+    }
+    @include mobile {
+        padding: rem(10px) rem(20px) rem(20px);
+        .copy,
+        .menu,
+        .bn-wrap { width: 100%; }
+        .copy { 
+            order: 2;
+            p:nth-child(3) span:nth-last-child(1) {
+                display: block;
+                &::before { display: none; }
+            }
+        }
+        .menu {
+            order: 1;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: rgba(255,255,255, .05) solid 1px;
+            p { 
+                display: inline-block;
+                margin-right: 20px;
+            }
+        }
+        .bn-wrap {
+            order: 3;
+            justify-content: flex-start;
+        }
+    }
+}

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<Configuration status="DEBUG">
+	<!-- 파일정보 -->
+	<Properties>
+		<Property name="infoLogNm">./logs/test/api_info.log</Property>
+		<Property name="errorLogNm">./logs/test/api_error.log</Property>
+		<Property name="authLogNm">./logs/test/api_auth.log</Property>
+		<Property name="jsonInfoLogNm">./logs/test/api_json_info.log</Property>
+		<Property name="layoutPattern">%style{%d{UTF-8}}{black} %highlight{%-5level} [%style{%t}{bright,blue}]%style{%C}{bright,yellow}: %msg%n%throwable</Property>
+	</Properties>
+
+	<!-- 생성 파일 정보 -->
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<!-- <PatternLayout pattern="${layoutPattern}"/> -->
+			<PatternLayout pattern="%d{yyyy-MM-dd hh:mm:ss} %5p [%c] %m%n"/>
+		</Console>
+		<Console name="Console_Appender" class="org.apache.log4j.ConsoleAppender">
+			<PatternLayout pattern="%d{yyyy-MM-dd hh:mm:ss} %5p [%c] %m%n"/> 
+		</Console>
+
+		<!-- info level -->
+		<File name="File_Info_Appender">
+			<fileName>${infoLogNm}</fileName>
+			<PatternLayout>
+				<pattern>%d %p %C{1.} [%t] %m%n</pattern>
+			</PatternLayout>
+		</File>
+	
+		<!-- error level -->
+		<File name="File_Error_Appender">
+			<fileName>${errorLogNm}</fileName>
+			<PatternLayout>
+				<pattern>%d %p %C{1.} [%t] %m%n</pattern>
+			</PatternLayout>
+		</File>
+	
+		<!-- auth management -->
+		<File name="File_Auth_Appender">
+			<fileName>${authLogNm}</fileName>
+			<PatternLayout>
+				<pattern>%d %p %C{1.} [%t] %m%n</pattern>
+			</PatternLayout>
+		</File>
+	
+		<!-- json api info -->
+		<File name="File_Json_info_Appender">
+		<fileName>${jsonInfoLogNm}</fileName>
+			<PatternLayout>
+				<pattern>%d %p %C{1.} [%t] %m%n</pattern>
+			</PatternLayout>
+		</File>
+	</Appenders>
+
+	<!-- 로그 범위  -->
+	<Loggers>
+		<!-- Spring 관련 로그  -->
+		<Logger name="org.springframework" additivity="true" level="INFO">
+			<AppenderRef ref="console"/>
+			<!-- <AppenderRef ref="File_Info_Appender"/> -->
+			<!-- <AppenderRef ref="File_Error_Appender"/> -->
+		</Logger>
+	
+		<!-- 프로젝트 로그 -->
+		<Logger name="com.spring.BBUGGE" additivity="true" level="DEBUG">
+			<AppenderRef ref="console"/>
+			<!-- <AppenderRef ref="File_Info_Appender"/> -->
+			<!-- <AppenderRef ref="File_Error_Appender"/> -->
+		</Logger>
+	
+		<!-- AUTH 관련 로그  -->
+		<Logger name="com.pacakge.projectname.common.filter" additivity="true" level="INFO">
+			<AppenderRef ref="console"/>
+			<!-- <AppenderRef ref="File_Info_Appender"/> -->
+			<!-- <AppenderRef ref="File_Error_Appender"/> -->
+		</Logger>
+	
+		<!-- Default 세팅 -->
+		<Root additivity="false" level="DEBUG">
+			<AppenderRef ref="console"/>
+		</Root>
+
+		<!-- mybatis -->
+		<Logger name="java.sql" level="DEBUG" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="egovframework" level="DEBUG" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="jdbc.resultsettable" additivity="false"> 
+			<level value="info" /> 
+			<appender-ref ref="console-log4jdbc" />
+		</Logger>
+	</Loggers>
+	
+</Configuration>

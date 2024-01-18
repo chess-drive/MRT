@@ -1,0 +1,183 @@
+$arrow : #8c8882;
+select {
+    height: 30px;
+    padding: 2px 25px 2px 5px;
+    border: $border solid 1px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #fff url(#{$img-path}/ico_down.png) 93% center no-repeat;
+    background-size: 10px auto;
+    &::-ms-expand {
+        display: none;
+    }
+}
+input.onlyNum { max-width: 150px;}
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-top: $border solid 2px;
+    tr {
+        border-bottom: $border solid 1px;
+    }
+    th, td { padding:rem(7px) rem(10px); }
+    input[type="text"] { width: 100%; }
+    .no-data {
+        padding: rem(40px) 0;
+        text-align: center;
+        font-size: rem(14px);
+        color: #888;
+    }
+    img { max-width: 100%; }
+}
+
+.modal {
+    table {
+        th, td { 
+            //padding:rem(3px) rem(5px);
+            font-size: rem(14px);
+        }
+    }
+}
+
+table.tbl-type1 {
+    border-bottom: $border solid 2px;
+    th { background: rgba($gray, .1); }
+}
+
+
+
+.form {
+    padding: rem(60px) rem(30px);
+    border: $border solid 1px;
+    @include tablet {
+        padding: 0;
+        border : none;
+    }
+    dl + dl { margin-top: 20px; }
+    dt {
+        font-weight: 500;
+    }
+    dt span {
+        padding-left: 5px;
+        font-weight: normal;
+        font-size: 90%;
+        vertical-align: baseline;
+        color: $gray;
+        word-break: keep-all;
+        &.ess { color: $primary; }
+    }
+    dd {
+        margin-top: 5px;
+        word-break: keep-all;
+        input[type="text"], select { height: 50px; }
+        label + label { margin-left: 10px; }
+        .btn-chk,
+        .btn-cert,
+        .btn-cancel,
+        .btn-zip {
+            width: calc(32% - 6px);
+            height: 50px;
+        }
+        .id,
+        .phone {
+            width: 68%;
+        }
+        .accnt { width: 40%; }
+        .name { width: 45%; }
+        .birth { width: 32%; }
+        .pw, 
+        .mail { width: 100%; }
+    }
+    .btn-chk {
+        background: $gray;
+        color: #fff;
+        &:hover {
+            background: $navy;
+        }
+    }
+    .btn-cert,
+    .btn-zip {
+        background: $border-lt;
+        border: $border solid 1px;
+    }
+    .btn-regi,
+    .btn-add,
+    .btn-confirm {
+        width: 100%;
+        height: 60px;
+        font-size: rem(20px);
+    }
+    .btn-regi {
+        background: $color1;
+        color: #fff;
+        &:hover {
+            background: $navy;
+        }
+    }
+    .btn-add {
+        margin-top: 15px;
+        background: $border;
+    }
+    .btn-confirm {
+        margin-top: 30px;
+    }
+    .btn-zip {
+        width: rem(100px) !important;
+    }
+    .btn-cert:hover,
+    .btn-add:hover,
+    .btn-zip:hover {
+        background: rgba($gray, .5);
+    }
+    #merchant_bank_account {
+        div + div { margin-top: 10px; }
+        .btn-cert,
+        .btn-cancel {
+            width: 14%;
+        }
+        @include tablet {
+            select { 
+                display: block;
+                margin-bottom: 5px;
+            }
+            .accnt { width: calc(100% - 30% - 10px); }
+        }
+    }
+}
+.modal-con .form {
+    padding: 0;
+    border: none;
+    .shop_name input,
+    .shop_email input { width: 100%; }
+    .shop_tel_number {
+        input { width: 65%; }
+        .btn-chk { width: calc(35% - 6px); }
+    }
+    .shop_address {
+        > input:nth-child(1) { width: 15%; }
+        > input:nth-child(3) { width: 35%; }
+        > input:nth-child(4) { width: 35%; }
+        label { 
+            display: block;
+            margin-top: 5px;
+            input { margin-right: 5px; }
+        }
+        @include tablet {
+            > input:nth-child(1) { width: 35%; }
+            > input:nth-child(3) { width: 100%; margin:5px 0; }
+            > input:nth-child(4) { width: 100%; }
+        }
+    }
+    .shop_position {
+        label:nth-child(4)::before {
+            content:'';
+            display: block;
+        }
+    }
+}
+
+dl dt { font-weight: 700; }
+dl dd {
+    div + div { margin-top: 5px; }
+}

@@ -1,0 +1,141 @@
+/* common.scss */
+.fl-rt { float: right; }
+.txt-cnt { text-align: center; }
+.txt-rt { text-align: right !important; }
+
+.fonts { font-size: 90%; }
+.preline {
+    display: block;
+    padding: 0 rem(10px) rem(20px);
+    height: 120px;
+    overflow-y: auto;
+    border: $border solid 1px;
+    white-space: pre-line;
+    font-size: 90%;
+    color: #888;
+}
+
+.mg-top10 { margin-top: 10px; }
+.mg-top20 { margin-top: 20px; }
+.mg-btm10 { margin-bottom: 10px;}
+.mg-btm30 { margin-bottom: 30px;}
+.mg-btm50 { margin-bottom: 50px;}
+.mg-lt5 { margin-left: 5px; }
+
+
+.row {
+    display:flex; 
+    flex-wrap:wrap; 
+    position:relative; 
+    left:0; 
+    right:0; 
+    & [class*="col-"] {
+        float: left;
+        -webkit-box-flex:0;
+    }
+    .col-6 { 
+        flex:0 0 auto;
+        width:50% !important; 
+    }
+}
+
+.no-data {
+    padding: rem(20px) 0 rem(80px);
+    color: #888;
+    text-align: center;
+    &::before {
+        @include fa;
+        font-size: rem(50px);
+        color: $border;
+        display: block;
+        content: '\f071';
+    }
+}
+
+.pop-address-search .pop-address-search-inner .guide { display: none !important; }
+
+.loading {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    &::after {
+        content: '';
+        display: block;
+        width: calc(100% - 10px);
+        height: calc(100% - 10px);
+        border-radius: 50%;
+        border: 5px solid $primary;
+        border-color: $primary $primary $primary transparent;
+        animation: loading 1.2s linear infinite;
+    }
+}
+.loading-wrap {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0, .7);
+    z-index: 999;
+    .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+[aria-label] {
+    position: relative;
+    span {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    &:hover::before {
+        content: attr(aria-label);
+        position: absolute;
+        top: 31px;
+        left: 20px;
+        display: block;
+        padding: 5px;
+        line-height: 1.25em !important;
+        font-size: rem(13px);
+        color: #fff;
+        background: #000;
+        border-radius: 5px;
+        z-index: 2;
+    }
+    &:hover::after {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        margin-left: 3px;
+        display: inline-block;
+        color: #fff;
+        border: 6px solid transparent;	
+        border-bottom: 6px solid #000;
+    }
+    @include mobile {
+        span {
+            overflow: visible;
+            white-space: normal;
+        }
+        &:hover::before,
+        &:hover::after { display: none; }
+    }
+}
+
+
+.search_bar {
+    .thumb {
+        width: 50px;
+        height: 30px;
+        overflow: hidden;
+        vertical-align: middle;
+        img { max-width: 100%; }
+    }
+}
+
+g[aria-labelledby="id-66-title"] { display: none !important; }

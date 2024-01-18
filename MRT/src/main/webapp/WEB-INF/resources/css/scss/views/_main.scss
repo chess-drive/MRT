@@ -1,0 +1,114 @@
+/* main.scss */
+.main_visual {
+    position: relative;
+    width: 100%;
+    max-width: $max-width;
+    height: rem(460px);
+    margin: 0 auto;
+    overflow: hidden;
+    z-index: 1;
+    .item {
+        position: relative;
+        float : left;
+        width : 100%;
+        height: rem(460px);
+        overflow: hidden;
+        img,
+        .txt {
+            @include v-mid;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            min-height: rem(460px);
+            object-fit: cover;
+            @include tablet {
+                width: auto;
+                height: 100%;
+            }
+        }
+    }
+    .txt {
+        width: 80%;
+        text-align: center;
+        color: #fff;
+        z-index: 2;
+        h3 {
+            font-size: rem(70px);
+            &::after {
+                content:'';
+                display: block;
+                margin: rem(20px) auto;
+                width: rem(100px);
+                height: 1px;
+                background: #fff;
+            }
+            @include mobile {
+                font-size: rem(40px);
+            }
+        }
+    }
+    .slick-arrow {
+        @include v-mid;
+        @include text-hide;
+        z-index: 2;
+        &:hover {
+            &::after {
+                color: rgba(255,255,255,.6);
+            }
+        }
+        &::after {
+            display: block;
+            @include fa;
+            color: rgba(255,255,255,.4);
+            font-size: rem(30px);
+        }
+        &.slick-prev {
+            left: 0;
+            transform: translate(0, -50%);
+            &::after {
+                content:'\f053';
+            }
+        }
+        &.slick-next {
+            left: auto;
+            right: 0;
+            transform: translate(0, -50%);
+            &::after {
+                content:'\f054';
+            }
+        }
+    }
+    .slick-dots {
+        position: absolute;
+        left: 50%;
+        bottom: rem(20px);
+        transform: translate(-50%, 0);
+        z-index: 2;
+        li {
+            @include text-hide;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background:rgba(255,255,255,.4);
+            transition: .3s;
+            cursor: pointer;
+            &:hover {
+                background:rgba(255,255,255,.8);
+            }
+            &.slick-active {
+                width: 40px;
+                background:rgba(255,255,255,.8);
+            }
+        }
+        li + li { margin-left: 10px; }
+    }
+}
+.main_chart-wrap + .rank-wrap {
+    margin-top: rem(80px) !important;
+}
+
+.rank-wrap {
+    .tit-con { text-align: center; }
+}

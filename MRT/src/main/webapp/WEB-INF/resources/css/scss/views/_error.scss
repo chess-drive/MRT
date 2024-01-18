@@ -1,0 +1,122 @@
+/* error.scss */
+$ico : #d7d7d7;
+.notfound {
+    padding: 5%;
+    text-align: center;
+    .ico-wrap {
+        @include clear;
+        position: relative;
+        margin:0 auto 20px;
+        width: 17rem;
+        text-align:center;
+        cursor: default;
+        .list-square,
+        .list-bar {
+            float: left;
+        }
+        .list-square {
+            .square {
+                display:  block;
+                margin-bottom: 0.5rem;
+                width: 4rem;
+                height: 4rem;
+                background: transparent;
+                border: 1rem solid $ico;
+                border-radius: 1rem;
+            }
+        }
+        .list-bar {
+            .bar {
+                display:  block;
+                margin-left: 1rem;
+                margin-bottom: 1.65rem;
+                width: 12rem;
+                height: 1.25rem;
+                background: $ico;
+                border-radius: .5rem;
+                &:nth-child(even) {
+                    width: 9rem;
+                }
+            }
+        }
+        .ico-report {
+            font-size: rem(160px);
+            color: $border;
+        }
+        .ico-srch {
+            display: block;
+            position: absolute;
+            font-size: rem(130px);
+            font-weight: 900;
+            animation: corner 5s infinite ease-in-out;
+        }
+
+    }
+    h1 {
+        text-transform : uppercase;
+        font-size: 3.625rem;
+        font-weight: 900;
+        //text-shadow: 4px 4px 0 $wh, 7px 7px 0 $dark;
+    }
+    h2 {
+        text-transform : uppercase;
+        font-size: 2.325rem;
+        font-weight: 700;
+        i {
+            font-size: 2.55rem;
+        }
+    }
+    p {
+        font-size: 1.25rem;
+        color: #8392a5;
+    }
+    .site-chk {
+        .date {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 5px 20px;
+            font-weight: 500;
+            background: $primary;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .txt {
+            white-space: pre-line;
+            margin-bottom: 20px;
+        }
+    }
+    .btn-home {
+        @include inline-block;
+        margin-top: 30px;
+        padding: 3px 25px;
+        border-radius: 25px;
+        font-size: rem(20px);
+        font-weight: 500;
+        color:#fff;
+        background: $color6;
+        @include hover(#fff, $primary);
+    }
+    .error-404 {
+        .ico-srch {
+            color: $primary;
+        }
+    }
+}
+
+@keyframes corner {
+  0%     { transform: translate(-2rem, 2rem); }
+  25%    { transform: translate(12rem, -2rem); }
+  50%    { transform: translate(7rem, 7rem); }
+  75%    { transform: translate(12rem, 9rem); }
+  100%   { transform: translate(-2rem, 2rem); }
+}
+
+
+
+
+
+
+
+
+
+

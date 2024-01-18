@@ -1,0 +1,25 @@
+/* style.scss */
+
+@charset "UTF-8";
+$img-path: "../image";
+$font-path:"../css/fonts";
+
+@import "common/color";
+@import "common/mixin";
+@import "common/typography";
+@import "common/animation";
+@import "common/default";
+@import "common/form";
+@import "common/tab";
+@import "common/modal";
+@import "common/pagination";
+@import "common/btn";
+@import "common/common";
+
+@import "views/layout";
+@import "views/shoplist";
+@import "views/prddetail";
+@import "views/login";
+@import "views/member";
+@import "views/order";
+@import "views/policy";

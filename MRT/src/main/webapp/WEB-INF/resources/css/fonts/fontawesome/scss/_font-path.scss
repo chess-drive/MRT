@@ -1,0 +1,45 @@
+ @font-face {
+   font-family: 'Font Awesome 5 Brands';
+   font-style: normal;
+   font-weight: normal;
+   font-display: $fa-font-display;
+   src: url('#{$font-path}/fontawesome/fa-brands-400.woff?v=4.0.3') format('woff');
+ }
+ 
+ .fab {
+   font-family: 'Font Awesome 5 Brands';
+ }
+ 
+ @font-face {
+    font-family: 'Font Awesome 5 Free';
+    font-style: normal;
+    font-weight: 400;
+    font-display: $fa-font-display;
+    src: url('#{$font-path}/fontawesome/fa-regular-400.woff?v=4.0.3') format('woff');
+  }
+  
+  .far {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400;
+  }
+  
+
+  @font-face {
+    font-family: 'Font Awesome 5 Free';
+    font-style: normal;
+    font-weight: 900;
+    font-display: $fa-font-display;
+    src: url('#{$font-path}/fontawesome/fa-solid-900.woff?v=4.0.3') format('woff');
+  }
+  
+  .fa,
+  .fas {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+  }
+  
+
+  @mixin fa {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+  }

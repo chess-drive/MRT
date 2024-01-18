@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/jdbc  http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+
+    <!-- Altibase 설정 -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="Altibase.jdbc.driver.AltibaseDriver"/>
+        <property name="url" value="jdbc:Altibase://127.0.0.1:20300/mydb"/>
+        <property name="username" value="altimon"/>
+        <property name="password" value="monitor1234"/>
+    </bean>
+
+</beans>

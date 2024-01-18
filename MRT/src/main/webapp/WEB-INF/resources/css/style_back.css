@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+
+
+@media all {
+* {
+    margin: 0;
+    padding: 0;
+	
+}
+
+html, body {
+    position:relative;
+    width: 100%;
+}
+
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,img { margin:0; padding:0 ;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+  box-sizing: border-box;}
+table,tr,td,{table-layout:fixed;}
+button{border:0;background:transparent; border-color:none;}
+html { width:100%; height:100%; }
+body{ width:100%; }
+li { list-style:none }
+img,fieldset { border:none; vertical-align:middle; }
+table{    border-spacing: 0px;}
+a { text-decoration:none; outline:none; }
+a:link{text-decoration:none;}
+a:hover { text-decoration:none }
+a:active { text-decoration:none }
+select::-ms-expand { display: none; }
+select,.coin_type,.toExcName { -webkit-appearance: none;-moz-appearance: none; appearance: none; background: url(../../resources/image/selectBtn.png) no-repeat 95% 50%;
+ background-color: transparent;font-family:"Noto Sans KR", sans-serif;}
+.toExcName{ width: 100%;}
+.coin_type{width:120px; text-align-last: center;}
+
+input:focus,td,tr,select,button {
+  outline: none;
+}
+
+/*---------------------------------------------------------
+  폰트선언(레이아웃,버튼 클래스는 별도 css에서 처리)
+---------------------------------------------------------*/
+
+/* body·code */
+body,textarea { font-family:"Noto Sans KR", sans-serif }
+
+/* input·select·textarea */
+input{ font-family:"Noto Sans KR", sans-serif }
+
+
+
+
+.header_button {
+    color: rgba(30, 22, 54, 0.6);
+    box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+.header_button:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
+}
+.button_none{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    /*cursor: pointer;
+    /*outline: inherit;*/
+}
+.button_none:hover {
+    color: #bcbcbc;
+}
+}
+
+
+
+
+/* TEXT */
+.center{
+    text-align: center;
+}
+.left{
+    text-align: left;
+}
+.right{
+    text-align: right;
+}
+.font_red{
+    color:red;
+}
+.font_green{
+    color:green;
+}
+.font_blue{
+    color:dodgerblue;
+}
+.font_grey{
+    color:grey;
+}
+.h3{
+    font-size: 24px;
+}
+.align_right{
+    text-align: right;
+}
+.align_left{
+    text-align: left;
+}

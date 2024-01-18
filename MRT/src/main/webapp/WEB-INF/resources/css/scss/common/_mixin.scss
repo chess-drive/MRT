@@ -1,0 +1,88 @@
+/* mixin.scss */
+@charset "UTF-8";
+$screen-mobile: 335px;
+$screen-tablet: 800px;
+$screen-desktop: 1380px;
+
+@mixin text-overflow() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+@mixin clear() {
+    &::before,
+    &::after {
+        content: ''; 
+        display: block; 
+    }
+    &::after {
+        clear: both;
+    }
+}
+@mixin inline-block {
+    display: inline-block;
+    vertical-align: baseline;
+}
+@mixin v-mid {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+@mixin hover-opacity {
+    cursor: pointer;
+    transition: .3s;
+    &:hover {
+        opacity: .8;
+    }
+}
+@mixin hover-color($color) {
+    cursor: pointer;    
+    transition: .3s;
+    &:hover {
+        color: $color;
+    }
+}
+@mixin hover($color, $bg) {
+    cursor: pointer;    
+    transition: .3s;
+    &:hover {
+        color: $color;
+        background: $bg;
+    }
+}
+@mixin text-hide() {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+@mixin grayscale($value) {
+    -webkit-filter: #{"grayscale(#{$value})"};
+    -moz-filter: #{"grayscale(#{$value})"};
+    filter:#{"grayscale(#{$value})"};
+}
+
+
+//rem 계산
+$base-font:16px;
+@function rem($font-size){
+	@return $font-size/$base-font#{rem};
+}
+@mixin fontSize($font-size) {
+    font-size: $font-size;
+    font-size: rem($font-size);
+}
+// 반응형
+@mixin mobile {
+  @media (max-width: #{$screen-tablet - 1px}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: #{$screen-desktop - 1px}) {
+    @content;
+  }
+}

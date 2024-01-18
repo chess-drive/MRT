@@ -1,0 +1,210 @@
+/* typography.scss */
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), 
+       local('Roboto-Light'), 
+       url('#{$font-path}/roboto/Roboto-Light.woff') format('woff'),
+       url('#{$font-path}/roboto/Roboto-Light.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), 
+       local('Roboto-Regular'), 
+       url('#{$font-path}/roboto/Roboto-Regular.woff') format('woff'),
+       url('#{$font-path}/roboto/Roboto-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Medium'), 
+       local('Roboto-Medium'), 
+       url('#{$font-path}/roboto/Roboto-Medium.woff') format('woff'),
+       url('#{$font-path}/roboto/Roboto-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), 
+       local('Roboto-Bold'), 
+       url('#{$font-path}/roboto/Roboto-Bold.woff') format('woff'),
+       url('#{$font-path}/roboto/Roboto-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Roboto Black'), 
+       local('Roboto-Black'), 
+       url('#{$font-path}/roboto/Roboto-Black.woff') format('woff'),
+       url('#{$font-path}/roboto/Roboto-Black.woff2') format('woff2');
+}
+
+@font-face {
+     font-family: 'Noto Sans KR';
+     font-style: normal;
+     font-weight: 100;
+     src: local('Noto Sans KR Thin'),
+     local('NotoSansKR-Thin'),
+     url('#{$font-path}/notosans_kr/NotoSansKR-Thin.woff') format('woff'),
+     url('#{$font-path}/notosans_kr/NotoSansKR-Thin.woff2') format('woff2');
+}
+
+@font-face {
+     font-family: 'Noto Sans KR';
+     font-style: normal;
+     font-weight: 300;
+     src: local('Noto Sans KR Light'),
+     local('NotoSansKR-Light'),
+     url('#{$font-path}/notosans_kr/NotoSansKR-Light.woff') format('woff'),
+     url('#{$font-path}/notosans_kr/NotoSansKR-Light.woff2') format('woff2');
+}
+
+@font-face {
+     font-family: 'Noto Sans KR';
+     font-style: normal;
+     font-weight: 400;
+     src: local('Noto Sans KR Regular'),
+     local('NotoSansKR-Regular'),
+     url('#{$font-path}/notosans_kr/NotoSansKR-Regular.woff') format('woff'),
+     url('#{$font-path}/notosans_kr/NotoSansKR-Regular.woff2') format('woff2');
+}
+
+@font-face {
+     font-family: 'Noto Sans KR';
+     font-style: normal;
+     font-weight: 500;
+     src: local('Noto Sans KR Medium'),
+     local('NotoSansKR-Medium'),
+     url('#{$font-path}/notosans_kr/NotoSansKR-Medium.woff') format('woff'),
+     url('#{$font-path}/notosans_kr/NotoSansKR-Medium.woff2') format('woff2');
+}
+
+@font-face {
+     font-family: 'Noto Sans KR';
+     font-style: normal;
+     font-weight: 700;
+     src: local('Noto Sans KR Bold'),
+     local('NotoSansKR-Bold'),
+     url('#{$font-path}/notosans_kr/NotoSansKR-Bold.woff') format('woff'),
+     url('#{$font-path}/notosans_kr/NotoSansKR-Bold.woff2') format('woff2');
+}
+
+@font-face {
+     font-family: 'Noto Sans KR';
+     font-style: normal;
+     font-weight: 900;
+     src: local('Noto Sans KR Black'),
+     local('NotoSansKR-Black'),
+     url('#{$font-path}/notosans_kr/NotoSansKR-Black.woff') format('woff'),
+     url('#{$font-path}/notosans_kr/NotoSansKR-Black.woff2') format('woff2');
+}
+
+
+/* ICON */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+	src: local('MaterialIcons-Regular'),
+		 url('#{$font-path}/material/MaterialIcons-Regular.woff') format('woff'),
+		 url('#{$font-path}/material/MaterialIcons-Regular.woff2') format('woff2');
+ }
+ @font-face {
+    font-family: 'Material Icons Outlined';
+    font-style: normal;
+    font-weight: 400;
+	src: local('MaterialIcons-Outlined'),
+		 url('#{$font-path}/material/MaterialIcons-Outlined.eot') format('embedded-opentype'),
+		 url('#{$font-path}/material/MaterialIcons-Outlined.ttf') format('truetype'),
+		 url('#{$font-path}/material/MaterialIcons-Outlined.woff2') format('woff2');
+ }
+  
+ .material-icons {
+	font-family: "Material Icons";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	text-rendering: optimizeLegibility;
+	font-feature-settings: 'liga';
+	ms-font-feature-settings:'liga';
+}
+
+.material-icons-outlined {
+	@extend .material-icons;
+	font-family: "Material Icons Outlined";
+}
+
+@mixin material-icons {
+	font-family: "Material Icons";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	text-rendering: optimizeLegibility;
+	font-feature-settings: 'liga';
+	ms-font-feature-settings:'liga';
+}
+
+@font-face {
+     font-family: 'Font Awesome 5 Brands';
+     font-style: normal;
+     font-weight: normal;
+     src: url('#{$font-path}/fontawesome/fa-brands-400.woff') format('woff');
+}
+
+.fab {
+     font-family: 'Font Awesome 5 Brands';
+}
+
+@font-face {
+     font-family: 'Font Awesome 5 Free';
+     font-style: normal;
+     font-weight: 400;
+     src: url('#{$font-path}/fontawesome/fa-regular-400.woff') format('woff');
+}
+
+.far {
+     font-family: 'Font Awesome 5 Free';
+     font-weight: 400;
+}
+
+
+@font-face {
+     font-family: 'Font Awesome 5 Free';
+     font-style: normal;
+     font-weight: 900;
+     src: url('#{$font-path}/fontawesome/fa-solid-900.woff') format('woff');
+}
+
+.fa,
+.fas {
+     font-family: 'Font Awesome 5 Free';
+     font-weight: 900;
+}
+
+
+@mixin fa {
+     font-family: 'Font Awesome 5 Free';
+     font-weight: 900;
+}

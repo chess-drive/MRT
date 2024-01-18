@@ -1,0 +1,661 @@
+/* join.scss */
+.join-wrap {
+    margin: 50px auto;
+    width: 90%;
+    max-width: 660px;
+    min-height: calc(100vh - 19.2rem);
+    .join-body {
+        h1 {
+            text-align: center;
+            height: 50px;
+            margin-bottom: 40px;
+            img { height: 100%; }
+        }
+        > ul {
+            padding: rem(60px) rem(30px);
+            border: $border solid 1px;
+        }        
+        @include tablet {
+            > ul {
+                padding: 0;
+                border : none;
+            }
+        }
+    }
+}
+
+.join-btn {
+    li {
+        text-align: center;
+    }
+    li + li { margin-top: 20px;}
+    li:nth-child(2) {
+        margin-bottom: 80px;
+    }
+    .btn-mem {
+        display: inline-block;
+        width: 80%;
+        max-width: 400px;
+        height: 60px;
+        font-size: rem(18px);
+
+        &.normal {
+            background: $primary;
+            color: #fff;
+        }
+        &.seller {
+            background: $color1;
+            color: #fff;
+        }
+        &.normal:hover,
+        &.seller:hover {
+            background: $navy;
+            color: #fff;
+        }
+
+        &.naver,
+        &.kakao,
+        &.face {
+            border: $border solid 1px;
+            font-size: rem(16px);
+            color: #888;
+
+            &:hover {
+                background: rgba($border, .5);
+            }
+        }
+    }
+}
+
+.join-agree {
+    li {
+        @include clear;
+    }
+    li + li { margin-top: 30px;}
+    input[type="checkbox"] {
+        display:none;
+    }
+    label input[type="checkbox"] + span.chkbox {
+        display:inline-block;
+        width:24px;
+        height:24px;
+        margin:-2px 5px 0 0;
+        vertical-align:middle;
+        background:url(#{$img-path}/ico_chk.png) no-repeat;
+        cursor:pointer;
+    }
+    label input[type="checkbox"]:checked + span.chkbox {
+        background:url(#{$img-path}/ico_chk_on.png) no-repeat;
+    }   
+    label b {
+        padding-left: 5px;
+        font-weight: normal;
+        font-size: 90%;
+        vertical-align: baseline;
+        color: $gray;
+        &.ess { color: $primary; }
+    } 
+    span.chk-all {
+        display: inline-block;
+        width: calc(100% - 40px);
+        word-break: keep-all;
+        color: #000;
+    }
+    .article_txt {
+        display: block;
+        margin-top: 10px;
+        padding: 0 rem(10px) rem(20px);
+        height: 120px;
+        overflow-y: auto;
+        border: $border solid 1px;
+        white-space: pre-line;
+        font-size: 90%;
+        color: #888;
+    }
+    .btn-cancel {
+        float: left;
+    }
+    .btn-confirm {
+        float: right;
+    }
+    .btn-cancel,
+    .btn-confirm {
+        width: 49%;
+        height: 60px;
+        font-size: rem(20px);
+    }
+}
+
+.join-form {
+    padding: rem(60px) rem(30px);
+    border: $border solid 1px;
+    @include tablet {
+        padding: 0;
+        border : none;
+    }
+    dl + dl { margin-top: 20px; }
+    dt {
+        font-weight: 500;
+    }
+    dt span {
+        padding-left: 5px;
+        font-weight: normal;
+        font-size: 90%;
+        vertical-align: baseline;
+        color: $gray;
+        word-break: keep-all;
+        &.ess { color: $primary; }
+    }
+    dd {
+        margin-top: 5px;
+        word-break: keep-all;
+        input[type="text"], select { height: 50px; }
+        label + label { margin-left: 10px; }
+        .btn-chk,
+        .btn-cert,
+        .btn-cancel,
+        .btn-zip {
+            width: calc(32% - 6px);
+            height: 50px;
+        }
+        .id,
+        .phone {
+            width: 68%;
+        }
+        .accnt { width: 40%; }
+        .name { width: 45%; }
+        .birth { width: 32%; }
+        .pw, 
+        .mail { width: 100%; }
+    }
+    .btn-chk {
+        background: $gray;
+        color: #fff;
+        &:hover {
+            background: $navy;
+        }
+    }
+    .btn-cert,
+    .btn-zip {
+        background: $border-lt;
+        border: $border solid 1px;
+    }
+    .btn-regi,
+    .btn-add,
+    .btn-confirm {
+        width: 100%;
+        height: 60px;
+        font-size: rem(20px);
+    }
+    .btn-regi {
+        background: $color1;
+        color: #fff;
+        &:hover {
+            background: $navy;
+        }
+    }
+    .btn-add {
+        margin-top: 15px;
+        background: $border;
+    }
+    .btn-confirm {
+        margin-top: 30px;
+    }
+    .btn-zip {
+        width: rem(100px) !important;
+    }
+    .btn-cert:hover,
+    .btn-add:hover,
+    .btn-zip:hover {
+        background: rgba($gray, .5);
+    }
+    #merchant_bank_account {
+        div + div { margin-top: 10px; }
+        .btn-cert,
+        .btn-cancel {
+            width: 14%;
+        }
+        @include tablet {
+            select { 
+                display: block;
+                margin-bottom: 5px;
+            }
+            .accnt { width: calc(100% - 30% - 10px); }
+        }
+    }
+}
+.modal-con .join-form {
+    padding: 0;
+    border: none;
+    .shop_name input,
+    .shop_email input { width: 100%; }
+    .shop_tel_number {
+        input { width: 65%; }
+        .btn-chk { width: calc(35% - 6px); }
+    }
+    .shop_address {
+        > input:nth-child(1) { width: 15%; }
+        > input:nth-child(3) { width: 35%; }
+        > input:nth-child(4) { width: 35%; }
+        label { 
+            display: block;
+            margin-top: 5px;
+            input { margin-right: 5px; }
+        }
+        @include tablet {
+            > input:nth-child(1) { width: 35%; }
+            > input:nth-child(3) { width: 100%; margin:5px 0; }
+            > input:nth-child(4) { width: 100%; }
+        }
+    }
+    .shop_position {
+        label:nth-child(4)::before {
+            content:'';
+            display: block;
+        }
+    }
+}
+
+.juso-wrap {
+    .juso_search {
+        margin-bottom: 20px;
+        input,
+        .btn-srch { 
+            height: 50px;
+        }
+        input { width: 70%; }
+        .btn-srch {
+            width: calc(30% - 6px);
+            background: #333;
+            color: #fff;
+        }
+    }
+    .juso-ex {
+        color: darken($color1, 30%);
+        padding-bottom: 20px;
+    }
+    div[name="address_row"] + div[name="address_row"] {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: $border solid 1px;
+    }
+    div[name="address_row"] {
+        position: relative;
+        .list_address {
+            span { display: block; }
+            label {
+                display: inline-block;
+                padding: 0 100px 0 10px;
+                color: #555;
+                cursor: pointer;
+                &:hover { text-decoration: underline;}
+            }
+            .doro { color: darken($color1, 5%); }
+            .jibun { 
+                color: darken($color3, 10%);; 
+                label { padding: 0 100px 0 25px; }
+            }
+        }
+        .list_post {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        @include tablet {
+            .doro label,
+            .jibun label { padding: 0 60px 0 0 !important; }
+        }
+    }
+}
+.my-form {
+    .txt-rt {
+        text-align: right;
+        margin-bottom: 10px;
+    }
+    .btn-addr {
+        padding: 0 20px;
+        height: 30px;
+    }
+    .btn-cert,
+    .btn-pw,
+    .btn-chk,
+    .btn-zip {
+        padding: 0 10px;
+        height: 30px;
+        font-size: 90%;
+        margin-left: 10px;
+    }
+    .btn-cert {
+        background: $border-lt;
+        border: $border solid 1px;
+        &:hover {
+            background: rgba($gray, .5);
+        }
+    }
+    .btn-chk {
+        background: $gray;
+        color: #fff;
+        &:hover {
+            background: $navy;
+        }
+    }
+    .btn-zip {
+        background: $border-lt;
+        border: $border solid 1px;
+        @include hover(#333, $border);
+    }
+    .my-form-body {
+        @include clear;
+        border-top: $border solid 2px;
+        border-bottom: $border solid 2px;
+        margin-bottom: 30px;
+        dl {
+            @include clear;
+            display: table;
+            width: 100%;
+            dt, 
+            dd {
+                display: table-cell;
+                padding: rem(10px) rem(20px);
+            }
+            dt { 
+                width: 180px; 
+                background: rgba($gray, .1);
+                span {
+                    padding-left: 5px;
+                    font-weight: normal;
+                    font-size: 90%;
+                    vertical-align: baseline;
+                    color: #888;
+                    word-break: keep-all;
+                    &.ess { color: $primary; }
+                }
+            }
+            dd {
+                margin-top: 0;
+                width: calc(100% - 180px);
+                word-break: keep-all;
+                label { margin-right: 20px; }
+                input[name*="name"] { width: 100%; }
+                input[name*="shop_address"] {
+                    display: block;
+                    margin-top:5px;
+                    width: 100%;
+                }
+            }
+        }
+        dl + dl { 
+            margin-top: 0;
+            border-top: $border-lt solid 1px;
+        }
+        @include tablet {
+            dd label:nth-child(2)::after { content:''; display: block; }
+        }
+        @include mobile {
+            dl, dt, dd {
+                display: block !important;
+                width: 100% !important;
+            }
+            dt, dd {
+                height: auto !important;
+                padding: rem(15px) rem(20px) !important;
+            }
+
+            input[type="text"] { width: 100%; }
+            input + input,
+            input + select,
+            select + input { margin-top: 5px; }
+            .btn-cert { margin-left: 0; margin-top: 5px; }
+            input[name*="tel"] { width: calc(100% - 90px); }
+            input[name*="postcode"] { width: 120px; }
+            input.name { width: calc(50% - 40px); }
+            input.name + input.name { width: calc(50% - 18px); }
+            input.name + input.name + .btn-cert { margin-left: 0; }
+        }
+    }
+    .btn-wrap {
+        margin-top: 30px;
+        .btn-delete,
+        .btn-confirm {
+            height: 50px;
+            padding: 0 40px;
+        }
+        .btn-delete {
+            background: $gray;
+            color: #fff;
+            @include hover(#fff, $navy);
+        }
+    }
+}
+.modal {
+    .addr-new,
+    .addr-default {
+        #address_1 { margin-bottom: 5px; }
+        tbody tr:hover {
+            background: rgba($primary, .07);
+        }
+    }
+}
+@include mobile {
+    .modal {
+        .addr-new,
+        .addr-default {
+            colgroup,
+            th { display: none; }
+            td { 
+                position: relative;
+                display: block;
+                width: 100%;
+                text-align: left;
+                padding-left: rem(120px);
+                border-top: $border solid 1px; 
+                &::before {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: rem(100px);
+                    padding-left: rem(15px);
+                    background: rgba($gray, .1);
+                    line-height: 250%;
+                }
+            }
+        }
+        .addr-new {
+            td:nth-child(1)::before { content:'배송지명'; }
+            td:nth-child(2)::before { content:'우편번호'; }
+            td:nth-child(3)::before { content:'주소'; }
+            td:nth-child(4)::before { content:'상세주소'; }
+            td:nth-child(5)::before { content:'기본배송지'; }
+        }
+        .addr-default {
+            td:nth-child(1)::before { content:'기본배송지'; }
+            td:nth-child(2)::before { content:'배송지명'; }
+            td:nth-child(3)::before { content:'우편번호'; }
+            td:nth-child(4)::before { content:'주소'; }
+            td:nth-child(5)::before { content:'상세주소'; }
+            td:nth-child(6)::before { content:'등록일자'; }
+        }
+    }
+}
+
+.quit-wrap {
+    .btn-area {
+        .btn-regi { 
+            padding:0 20px;
+            height: 30px;
+        }
+    }
+    .quit-doc,
+    .quit-my {
+        //max-width: 1000px;
+        margin: 0 auto;
+        border:3px solid $border-lt;
+        padding:20px; 
+        background:#fff; 
+        .name,
+        .id { 
+            @include inline-block;
+            font-weight: 500; 
+        }
+        .id { color:$primary; }
+    }
+    .quit-my {
+        margin-top: 50px;
+        padding: rem(40px) rem(20px);
+        text-align: center;
+        input[type="password"] {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            &::placeholder { color: $gray; }
+        }
+        input[type="password"],
+        .btn-base.big {
+            display: block;
+            margin-left:auto;
+            margin-right:auto;
+            width: 100%;
+            max-width: 300px;
+            height: 50px;
+        }
+    }
+    .quit-doc {
+        margin-bottom:30px;
+        ol li {
+            font-size: 14px;
+            line-height:1.35em; 
+            color:darken($color1, 10%);
+            padding-bottom:5px;
+            p {
+                color:#555; 
+                padding-left:16px;
+            }
+        }
+        li + li { margin-top: 10px; }
+        table {
+            width:100%; 
+            margin-top:7px; 
+            border:1px solid #d9d9d9; 
+            border-right:none; 
+            border-bottom:none;
+            thead th {
+                padding-top:8px; 
+                padding-bottom:7px; 
+                border-right:1px solid #d9d9d9; 
+                font-size: 12px; 
+                font-weight:bold; 
+                color:darken($color1, 10%); 
+                background:#fafcfe;
+            }
+            tbody {
+                td {
+                    padding-top:8px; 
+                    padding-bottom:7px; 
+                    text-align:center; 
+                    font-size: 12px; 
+                    border-bottom:1px solid #d9d9d9; 
+                    border-right:1px solid #d9d9d9; 
+                    color:#666;
+                }
+                .left {
+                    padding-left:18px; 
+                    text-align:left; 
+                    line-height:20px;
+                }
+                .fblue {color:#5e89bb;}
+            }
+        }
+        .txt_p {
+            padding-top:13px; 
+            padding-bottom:5px;
+        }
+        .board_box {
+            border:1px solid #d9d9d9; 
+            background:#fafcfe; 
+            overflow:hidden; 
+            _display:inline-block; 
+            margin-bottom:12px;
+            ul {
+                padding:5px 0 14px 60px; 
+                overflow:hidden; 
+                _display:inline-block;
+                li {
+                    float:left; 
+                    width:256px; 
+                    font-size: 12px; 
+                    color:#666; 
+                    padding:9px 0 0 8px; 
+                    &::before {
+                        content:'';
+                        display: inline-block;
+                        vertical-align: middle;
+                        width: 2px;
+                        height: 2px;
+                        background: $color1;
+                        margin-right: 5px;
+                    }
+                    .btn-confirm {
+                        padding: 0 10px;
+                        border: $border solid 1px;
+                        background: #fff;
+                        border-radius: 3px;
+                        color:#666;
+                        &:hover { background:$border-lt; }
+                    }
+                }
+            }
+        }
+    }
+    .quit {
+        margin-top: 20px;
+        padding: rem(40px) rem(20px);
+        text-align: center;
+        input[type="checkbox"] {
+            display:none;
+        }
+        label input[type="checkbox"] + span.chkbox {
+            display:inline-block;
+            width:24px;
+            height:24px;
+            margin:-2px 5px 0 0;
+            vertical-align:middle;
+            background:url(#{$img-path}/ico_chk.png) no-repeat;
+            cursor:pointer;
+        }
+        label input[type="checkbox"]:checked + span.chkbox {
+            background:url(#{$img-path}/ico_chk_on.png) no-repeat;
+        } 
+        label {
+            display: block;
+            margin-bottom: 20px;
+            word-break: keep-all;
+        }
+        input[type="password"] {
+            display: block;
+            margin: 0 auto 10px;
+            width: 100%;
+            max-width: 400px;
+            height: 50px;
+            &::placeholder { color: $gray; }
+        }
+        .btn-out {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 400px;
+            height: 50px;
+            color: #fff;
+            background: $primary;
+            &:hover {
+                background: $navy;
+            }
+        }
+    }
+    
+}
+
+.my-shop {
+    .shop-list {}
+}

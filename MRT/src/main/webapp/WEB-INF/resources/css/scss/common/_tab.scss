@@ -1,0 +1,21 @@
+/* tab.scss */
+.tab-menu {
+    @include clear;
+    margin-bottom: 20px;
+    .tablink {
+        display: inline-block;
+        cursor: pointer;
+        transition: .3s;
+    }
+}
+
+.tab-content {
+    position: relative;
+    width:100%;
+    > .tab-pane {
+        display: none;
+    }
+    > .active {
+        display: block;
+    }
+}
