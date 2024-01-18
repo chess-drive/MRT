@@ -2,10 +2,10 @@
 Monitoring tool for Altibase
 
 # Version Info
-Spring Version 5.2.3
-Java Version 1.8.0_291
-Tomcat Version 9.0.84
-Altibase Version 7.1.0.8.9
+- Spring Version 5.2.3
+- Java Version 1.8.0_291
+- Tomcat Version 9.0.84
+- Altibase Version 7.1.0.8.9
 
 프로젝트 내에 /src/main/resources/config/context-datasource.xml  파일
 IP, Port, Username, Password 를 바꿔서 사용하시면 됩니다.
