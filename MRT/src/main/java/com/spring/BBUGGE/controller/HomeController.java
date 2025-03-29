@@ -61,6 +61,7 @@ public class HomeController {
 		request.setAttribute("dbVer", dbVer);
 		request.setAttribute("propMap", propMap);
 		request.setAttribute("sessStmtList", sessStmtList);
+		request.setAttribute("replChkMap", replChkMap);
 		
 		return "monitor/monitor";
 	}

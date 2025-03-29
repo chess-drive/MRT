@@ -19,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     
 
-    <title>BBUGGE</title>
+    <title>MRT</title>
     <!-- Chrome, Safari, IE -->
     <link rel="shortcut icon" href="${CTX}/resources/image/favicon.ico">
     <!-- Firefox, Opera (Chrome and Safari say thanks but no thanks) -->

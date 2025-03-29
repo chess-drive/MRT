@@ -12,7 +12,8 @@
 	var absoluteUrl = '${ABSURL}';
 	var init_bool = true;
 	var g_term = isNullReturn("${paramMap.term}",5);
-
+	var repl_chk_bool = isNullReturn(${replChkMap.REPL_CHK},0);
+	
 	var win_lock_detail = "";
 	var win_gc_detail = "";
 	var win_stmt_detail = "";
@@ -22,6 +23,7 @@
 	var sessChart = null;
 	var stmtmChart = null;
 	var lockChart = null;
+	
 	
 	$(function(){
 		$('#term').val(g_term);
@@ -91,8 +93,10 @@
 		        		lockChart = new chartjs("chartdiv4","line",[d.lockMap].length);
 		        		lockChart.setMinMax(0,10);
 		        		// Replication
-		        		replChart = new chartjs("chartdiv5","line",d.replGapList.length);
-		        		replChart.setMinMax(0,1000);
+		        		if(repl_chk_bool){
+		        			replChart = new chartjs("chartdiv5","line",d.replGapList.length);
+			        		replChart.setMinMax(0,1000);	
+		        		}
 		        		init_bool = false;
 	        		}catch(e){
 	        			init_bool = true;
@@ -104,10 +108,15 @@
 	        			gcChart.getGraphCount() == d.gcGapList.length &&
 	        			sessChart.getGraphCount() == [d.actSessMap].length &&
 	        			stmtChart.getGraphCount() == [d.actStmtMap].length &&
-	        			lockChart.getGraphCount() == [d.lockMap].length &&
-	        			replChart.getGraphCount() == d.replGapList.length)){
+	        			lockChart.getGraphCount() == [d.lockMap].length)){
 	        		// 그래프 갯수 다르게 들어올 때 끊기지 않게  만들것.
-	        		location.reload();
+	        		if(repl_chk_bool){
+	        			if(!(replChart.getGraphCount() == d.replGapList.length)){
+	        				location.reload();	        				
+	        			}
+	        		}else {
+	        			location.reload();	
+	        		}
 	        	}
 	        		
 	        	memChart.removeDataFromChart();
@@ -125,9 +134,11 @@
 	        	lockChart.addDataToChart(d.now.substring(11,19),[d.lockMap]);
 	        	lockChart.removeDataFromChart();
 	        	lockChart.updateChart();
-	        	replChart.addDataToChart(d.now.substring(11,19),d.replGapList);
-	        	replChart.removeDataFromChart();
-	        	replChart.updateChart();
+	        	if(repl_chk_bool){
+	        		replChart.addDataToChart(d.now.substring(11,19),d.replGapList);
+		        	replChart.removeDataFromChart();
+		        	replChart.updateChart();
+	        	}
 	        	//tableHighlight(target, beforeNum, afterNum, speed)  beforeNum > afterNum
 	        	
 	        	// alert Warn
@@ -135,10 +146,11 @@
 	        	tableHighlight($('#chartTd0'),Math.floor(d.memList[2].VALUE / d.memList[0].VALUE * 100),90,1000); // Warnning Memory Usage Over 90
 	        	tableHighlight($('#chartTd2'),Math.floor(d.actSessMap.VALUE / max_client * 100),90,1000); // Warnning Session Client Over 90
 	        	tableHighlight($('#chartTd4'),d.lockMap.VALUE,0,1000);
-	        	for(var i = 0; i < d.replGapList.length; i++){
-	        		tableHighlight($('#chartTd5'),d.replGapList[i].VALUE,50000,1000);   // Warnning Replication Gap Over 100000
+	        	if(repl_chk_bool){
+		        	for(var i = 0; i < d.replGapList.length; i++){
+		        		tableHighlight($('#chartTd5'),d.replGapList[i].VALUE,50000,1000);   // Warnning Replication Gap Over 100000
+		        	}
 	        	}
-	        	
 	        	$('#sessStmtTableContent').html(refreshSessStmtTableHtml(d.sessStmtList));
 	        	
 	        }, error: function (request,status,error) {
@@ -230,8 +242,10 @@
                 			<canvas class="chartChild" id="chartdiv4" width="450px; height: 250px; font-size:12;"></canvas>
 		                </td>
 		                <td id="chartTd5">
-		                	<button class="btn-none" onclick="replDetail();">Repl Gap</button>
-		                	<canvas class="chartChild" id="chartdiv5" width="450px; height: 250px; font-size:12;"></canvas>
+			                <c:if test="${replChkMap.REPL_CHK == 1}">
+			                	<button class="btn-none" onclick="replDetail();">Repl Gap</button>
+			                	<canvas class="chartChild" id="chartdiv5" width="450px; height: 250px; font-size:12;"></canvas>
+		                	</c:if>
 		                </td>
 	                </tr>
                 </table>
